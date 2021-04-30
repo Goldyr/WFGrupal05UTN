@@ -44,6 +44,7 @@
             <div id="BtnAceptar">
                 <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" OnClick="btn_Aceptar_Click" />
             </div>
+            <asp:Label ID="lbl_AgregadoExito" runat="server" Text="La sucursal se ha agregado con exito" Visible="False"></asp:Label>
         </div>
     </form>
 </body>

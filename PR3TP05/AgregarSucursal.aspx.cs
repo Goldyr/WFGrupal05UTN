@@ -16,8 +16,14 @@ namespace PR3TP05
 
         protected void btn_Aceptar_Click(object sender, EventArgs e)
         {
+
             //Limpio las textbox
             txtbx_DescripcionSucursal.Text = txtbx_DireccionSucursal.Text = txtbx_NombreSucursal.Text = null;
+
+            //if(conexion.Transaccion(insert blabla) > 0){
+            //lbl_AgregadoExito.Visible = true;
+            //}
+            
         }
     }
 }
