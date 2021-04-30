@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace PR3TP05
 {
@@ -18,9 +19,24 @@ namespace PR3TP05
             SqlCommand cmd = new SqlCommand(consulta, conexion);
 
             int FilasAfectadas = cmd.ExecuteNonQuery();
-
+            
             //conexion.Close();
             return FilasAfectadas;
+        }
+
+        public SqlDataReader Traer_datos(string consulta)
+        {
+            SqlConnection conexion = new SqlConnection(ruta);
+            conexion.Open();
+
+            SqlCommand cmd = new SqlCommand(consulta, conexion);
+
+            cmd.CommandType = CommandType.Text;
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            //conexion.Close();
+            return dr;
         }
 
     }

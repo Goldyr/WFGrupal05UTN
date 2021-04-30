@@ -36,14 +36,7 @@
             </div>
             <div id="ProvSuc">
                 <p>Provincia:</p>
-                <asp:DropDownList ID="ddl_ProvinciaSucursal" runat="server">
-                    <asp:ListItem Value="1">Buenos Aires</asp:ListItem>
-                    <asp:ListItem Value="2">Entre Rios</asp:ListItem>
-                    <asp:ListItem Value="3">Santa fe</asp:ListItem>
-                    <asp:ListItem Value="4">La Pampa</asp:ListItem>
-                    <asp:ListItem Value="5">Cordoba</asp:ListItem>
-                    <asp:ListItem Value="6">Misiones</asp:ListItem>
-                    <asp:ListItem Value="7">Chaco</asp:ListItem>
+                <asp:DropDownList ID="ddl_ProvinciaSucursal" runat="server" AutoPostBack="True">
                 </asp:DropDownList>
             </div>
             <div id="DirSuc">

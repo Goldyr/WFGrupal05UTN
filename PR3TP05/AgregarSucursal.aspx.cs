@@ -13,6 +13,32 @@ namespace PR3TP05
         Conexion conexion = new Conexion();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(IsPostBack == false)
+            {
+                string consulta2 = "select * from Provincia";
+                SqlDataReader dr = conexion.Traer_datos(consulta2);
+          
+                //ddl_ProvinciaSucursal.DataTextField = "DescripcionProvincia";
+                //ddl_ProvinciaSucursal.DataValueField = "Id_Provincia";
+
+                while (dr.Read())
+                {
+                    //ddl_ProvinciaSucursal.Items.Add(dr["DescripcionProvincia"];
+
+                    //ddl_ProvinciaSucursal.Items.Insert(0, ListItem("[Id_Provincia]"), ""));
+                    //ddl_ProvinciaSucursal.Items.Insert(0, new ListItem("[DescripcionProvincia]", "0"));
+
+                    ddl_ProvinciaSucursal.DataTextField = "DescripcionProvincia";
+                    ddl_ProvinciaSucursal.DataValueField = "Id_Provincia";
+                    //ddl_ProvinciaSucursal.DataTextField = "DescripcionProvincia";
+                   
+                    ddl_ProvinciaSucursal.DataBind();
+                    lblMensaje.Text = "Cambio";
+                }
+
+                ddl_ProvinciaSucursal.DataBind();
+
+            }
 
         }
 
@@ -20,7 +46,7 @@ namespace PR3TP05
         {
             string Nombre = txtbx_NombreSucursal.Text.Trim();
             string Descripcion = txtbx_DescripcionSucursal.Text.Trim();
-            string Provincia = ddl_ProvinciaSucursal.SelectedValue; //???????????
+            string Provincia = ddl_ProvinciaSucursal.SelectedValue; 
             string Direccion = txtbx_DireccionSucursal.Text.Trim();
 
             string consulta = $"insert into Sucursal(NombreSucursal,DescripcionSucursal,Id_ProvinciaSucursal,DireccionSucursal) values( '{Nombre}', '{Descripcion}', '{Provincia}', '{Direccion}')";
