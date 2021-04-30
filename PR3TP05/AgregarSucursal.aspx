@@ -11,12 +11,14 @@
     <form id="form1" runat="server">
         <div>
             <asp:HyperLink ID="hlink_AgregarSucursal" runat="server" NavigateUrl="AgregarSucursal.aspx">Agregar Sucursal</asp:HyperLink>
+            &nbsp;&nbsp;
             <asp:HyperLink ID="hlink_ListarSucursal" runat="server" NavigateUrl="ListarSucursal.aspx">Listar Sucursal</asp:HyperLink>
+            &nbsp;&nbsp;
             <asp:HyperLink ID="hlink_EliminarSucursal" runat="server" NavigateUrl="EliminarSucursal.aspx">Eliminar Sucursal</asp:HyperLink>
         </div>
 
         <h2>
-            GRUPO NUMERO no me acuerdo
+            GRUPO NUMERO 7
         </h2>
         <h3>
             Agregar Sucursal
@@ -34,7 +36,15 @@
             </div>
             <div id="ProvSuc">
                 <p>Provincia:</p>
-                <asp:DropDownList ID="ddl_ProvinciaSucursal" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddl_ProvinciaSucursal" runat="server">
+                    <asp:ListItem Value="1">Buenos Aires</asp:ListItem>
+                    <asp:ListItem Value="2">Entre Rios</asp:ListItem>
+                    <asp:ListItem Value="3">Santa fe</asp:ListItem>
+                    <asp:ListItem Value="4">La Pampa</asp:ListItem>
+                    <asp:ListItem Value="5">Cordoba</asp:ListItem>
+                    <asp:ListItem Value="6">Misiones</asp:ListItem>
+                    <asp:ListItem Value="7">Chaco</asp:ListItem>
+                </asp:DropDownList>
             </div>
             <div id="DirSuc">
                 <p>Direccion:</p>
@@ -43,8 +53,11 @@
             </div>
             <div id="BtnAceptar">
                 <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" OnClick="btn_Aceptar_Click" />
+                <br />
+                <br />
+                <br />
+                <asp:Label ID="lblMensaje" runat="server"></asp:Label>
             </div>
-            <asp:Label ID="lbl_AgregadoExito" runat="server" Text="La sucursal se ha agregado con exito" Visible="False"></asp:Label>
         </div>
     </form>
 </body>

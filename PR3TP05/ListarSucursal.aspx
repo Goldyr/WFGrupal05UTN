@@ -6,13 +6,34 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            font-size: large;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
             <asp:HyperLink ID="hlink_AgregarSucursal" runat="server" NavigateUrl="AgregarSucursal.aspx">Agregar Sucursal</asp:HyperLink>
+            &nbsp;&nbsp;
             <asp:HyperLink ID="hlink_ListarSucursal" runat="server" NavigateUrl="ListarSucursal.aspx">Listar Sucursal</asp:HyperLink>
+            &nbsp;&nbsp;
             <asp:HyperLink ID="hlink_EliminarSucursal" runat="server" NavigateUrl="EliminarSucursal.aspx">Eliminar Sucursal</asp:HyperLink>
+            <br />
+            <br />
+            <span class="auto-style1"><strong>Listado de Sucursales</strong><br />
+            </span>&nbsp;<br />
+            Busqueda ingrese ID sucursal:&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="txtSucursal" runat="server"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" />
+&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnMostrar" runat="server" Text="Mostrar todos" />
+            <br />
+            <br />
+            <asp:GridView ID="grdDatos" runat="server">
+            </asp:GridView>
         </div>
     </form>
 </body>
