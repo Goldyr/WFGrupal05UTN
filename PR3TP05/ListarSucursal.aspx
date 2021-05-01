@@ -29,7 +29,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" />
 &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnMostrar" runat="server" Text="Mostrar todos" />
+            <asp:Button ID="btnMostrar" runat="server" Text="Mostrar todos" OnClick="btnMostrar_Click" />
             <br />
             <br />
             <asp:GridView ID="grdDatos" runat="server">

@@ -10,12 +10,13 @@ namespace PR3TP05
 {
     public partial class AgregarSucursal : System.Web.UI.Page
     {
-        Conexion conexion = new Conexion();
+        private Sucursal _sucursal = new Sucursal();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if(IsPostBack == false)
             {
-                conexion.Cargarddl(ddl_ProvinciaSucursal);
+                _sucursal.CargarProvincias(ddl_ProvinciaSucursal);
             }
 
         }
@@ -30,7 +31,7 @@ namespace PR3TP05
             string consulta = $"insert into Sucursal(NombreSucursal,DescripcionSucursal,Id_ProvinciaSucursal,DireccionSucursal) values( '{Nombre}', '{Descripcion}', '{Provincia}', '{Direccion}')";
 
             
-            int Filas = conexion.AgregarSucursal(consulta);
+            int Filas = _sucursal.AgregarSucursal(consulta);
 
             if(Filas == 0)
             {
