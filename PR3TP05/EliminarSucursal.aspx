@@ -28,7 +28,7 @@
             <span class="auto-style1"><strong>Eliminar Sucursales<br />
             <br />
             </strong></span><span class="auto-style2">Ingrese ID sucursal: </span>
-            <asp:TextBox ID="txtSucursal_eli" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtSucursal_eli" runat="server" TextMode="Number"></asp:TextBox>
             <span class="auto-style1"><strong>&nbsp;
             <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" />
             <br />

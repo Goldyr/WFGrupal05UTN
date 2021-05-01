@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using System.Data;
+using System.Web.UI.WebControls;
+
 
 namespace PR3TP05
 {
@@ -24,19 +26,20 @@ namespace PR3TP05
             return FilasAfectadas;
         }
 
-        public SqlDataReader Traer_datos(string consulta)
-        {
-            SqlConnection conexion = new SqlConnection(ruta);
-            conexion.Open();
+        public void Cargarddl( DropDownList ddlProvincia)
+        {          
+            String consulta = "Select * from Provincia";
 
-            SqlCommand cmd = new SqlCommand(consulta, conexion);
-
-            cmd.CommandType = CommandType.Text;
-
-            SqlDataReader dr = cmd.ExecuteReader();
-
-            //conexion.Close();
-            return dr;
+            DataSet ds = new DataSet();
+            SqlConnection cn = new SqlConnection(ruta);
+            cn.Open();
+            SqlDataAdapter adaptador = new SqlDataAdapter(consulta, cn);
+            adaptador.Fill(ds, "Provincia");
+            ddlProvincia.DataSource = ds.Tables["Provincia"];
+            ddlProvincia.DataTextField = "DescripcionProvincia";
+            ddlProvincia.DataValueField = "Id_Provincia";
+            ddlProvincia.DataBind();
+            cn.Close();
         }
 
     }

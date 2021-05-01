@@ -15,29 +15,7 @@ namespace PR3TP05
         {
             if(IsPostBack == false)
             {
-                string consulta2 = "select * from Provincia";
-                SqlDataReader dr = conexion.Traer_datos(consulta2);
-          
-                //ddl_ProvinciaSucursal.DataTextField = "DescripcionProvincia";
-                //ddl_ProvinciaSucursal.DataValueField = "Id_Provincia";
-
-                while (dr.Read())
-                {
-                    //ddl_ProvinciaSucursal.Items.Add(dr["DescripcionProvincia"];
-
-                    //ddl_ProvinciaSucursal.Items.Insert(0, ListItem("[Id_Provincia]"), ""));
-                    //ddl_ProvinciaSucursal.Items.Insert(0, new ListItem("[DescripcionProvincia]", "0"));
-
-                    ddl_ProvinciaSucursal.DataTextField = "DescripcionProvincia";
-                    ddl_ProvinciaSucursal.DataValueField = "Id_Provincia";
-                    //ddl_ProvinciaSucursal.DataTextField = "DescripcionProvincia";
-                   
-                    ddl_ProvinciaSucursal.DataBind();
-                    lblMensaje.Text = "Cambio";
-                }
-
-                ddl_ProvinciaSucursal.DataBind();
-
+                conexion.Cargarddl(ddl_ProvinciaSucursal);
             }
 
         }
@@ -56,18 +34,17 @@ namespace PR3TP05
 
             if(Filas == 0)
             {
-                lblMensaje.Text = "No se agrego";
+                lblMensaje.Text = "No se ha podido agregar la sucursal";
                 //no se agrego
             }
             else
             {
-                lblMensaje.Text = "Se agrego";
+                lblMensaje.Text = "La sucursal se ha agregado con exito";
                 //se agrego
             }
 
             //Limpio las textbox
             Limpiar();           
-            //txtbx_DescripcionSucursal.Text = txtbx_DireccionSucursal.Text = txtbx_NombreSucursal.Text = null;
         }
 
         public void Limpiar()

@@ -25,7 +25,7 @@
             <span class="auto-style1"><strong>Listado de Sucursales</strong><br />
             </span>&nbsp;<br />
             Busqueda ingrese ID sucursal:&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtSucursal" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtSucursal" runat="server" TextMode="Number"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" />
 &nbsp;&nbsp;&nbsp;

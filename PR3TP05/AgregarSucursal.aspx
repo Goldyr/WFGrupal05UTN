@@ -45,6 +45,7 @@
                 <asp:RequiredFieldValidator ID="rfv_Direccion" runat="server" ControlToValidate="txtbx_DireccionSucursal">Ingresar una direccion valida</asp:RequiredFieldValidator>
             </div>
             <div id="BtnAceptar">
+                <br />
                 <asp:Button ID="btn_Aceptar" runat="server" Text="Aceptar" OnClick="btn_Aceptar_Click" />
                 <br />
                 <br />
