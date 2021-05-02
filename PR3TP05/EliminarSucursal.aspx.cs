@@ -9,9 +9,21 @@ namespace PR3TP05
 {
     public partial class EliminarSucursal : System.Web.UI.Page
     {
+        private Sucursal _sucursal = new Sucursal();
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-    }
+
+		protected void btnEliminar_Click(object sender, EventArgs e)
+		{
+            string datoEliminar = txtSucursal_eli.Text;
+            if (_sucursal.AgregarSucursal("DELETE FROM Sucursal Where Id_Sucursal =" + datoEliminar) == 1) {
+
+                lbl_eliminar.Text = "La sucursal se ha eliminado con éxito";
+            }else lbl_eliminar.Text = "La sucursal no existe";
+            
+		}
+	}
 }
+//13 Mc Donalds	Local de comidas rapidas: MC Donalds	Buenos Aires	Virrey Loreto 611

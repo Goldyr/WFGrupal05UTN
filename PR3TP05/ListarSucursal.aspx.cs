@@ -11,14 +11,35 @@ namespace PR3TP05
     {
         private Sucursal _sucursal = new Sucursal();
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            String consulta = "SELECT Id_Sucursal as 'ID Sucursal', NombreSucursal as 'Nombre sucursal', " +
+
+        String consulta = "SELECT Id_Sucursal as 'ID Sucursal', NombreSucursal as 'Nombre sucursal', " +
             "DescripcionSucursal as 'Descripcion', Provincia.DescripcionProvincia as 'Provincia' , DireccionSucursal as 'Direccion' " +
             "FROM Sucursal " +
             "INNER JOIN Provincia ON Provincia.Id_Provincia = Sucursal.Id_ProvinciaSucursal";
+        protected void Page_Load(object sender, EventArgs e)
+        {
 
-            if (!IsPostBack) _sucursal.CargarEnTabla(grdDatos, consulta); 
+            if (!IsPostBack) _sucursal.CargarEnTabla(grdDatos, consulta);
+ 
         }
-    }
+
+		protected void btnMostrar_Click(object sender, EventArgs e)
+		{
+            _sucursal.CargarEnTabla(grdDatos,consulta);
+            txtSucursal.Text = "";
+		}
+
+		protected void btnFiltrar_Click(object sender, EventArgs e)
+		{
+            
+            int dato= Int32.Parse(txtSucursal.Text);
+            String consulta2 = "SELECT Id_Sucursal as 'ID Sucursal', NombreSucursal as 'Nombre sucursal', " +
+            "DescripcionSucursal as 'Descripcion', Provincia.DescripcionProvincia as 'Provincia' , DireccionSucursal as 'Direccion' " +
+            "FROM Sucursal " +
+            "INNER JOIN Provincia ON Provincia.Id_Provincia = Sucursal.Id_ProvinciaSucursal WHERE Id_sucursal="+ dato;
+
+            _sucursal.CargarEnTabla(grdDatos, consulta2);
+
+        }
+	}
 }

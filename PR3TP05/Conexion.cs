@@ -14,7 +14,7 @@ namespace PR3TP05
 
         public Conexion()
         {
-            s_ruta = "Data Source=localhost\\SQLEXPRESS;Initial Catalog = BDSucursales; Integrated Security = True";
+            s_ruta = "Data Source=localhost\\MSSQLSERVER2;Initial Catalog = BDSucursales; Integrated Security = True";
         }
 
         protected DataSet ConsultaDataSet(string consulta)    // Metodo para hacer consultas

@@ -26,7 +26,6 @@ namespace PR3TP05
             return FilasAfectadas;
         }
 
-
         //Metodo para cargar las provincias en el ddl
         public void CargarProvincias(DropDownList ddl)
         {
