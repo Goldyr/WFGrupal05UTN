@@ -31,15 +31,27 @@ namespace PR3TP05
 
 		protected void btnFiltrar_Click(object sender, EventArgs e)
 		{
+            if (txtSucursal.Text.ToString().Trim() != "")
+            {
+                int dato = Int32.Parse(txtSucursal.Text);
+                String consulta2 = "SELECT Id_Sucursal as 'ID Sucursal', NombreSucursal as 'Nombre sucursal', " +
+                    "DescripcionSucursal as 'Descripcion', Provincia.DescripcionProvincia as 'Provincia' , DireccionSucursal as 'Direccion' " +
+                    "FROM Sucursal " +
+                    "INNER JOIN Provincia ON Provincia.Id_Provincia = Sucursal.Id_ProvinciaSucursal WHERE Id_sucursal=" + dato;
+
+
+                if (_sucursal.verificarID(consulta2))
+                {
+                    _sucursal.CargarEnTabla(grdDatos, consulta2);
+                    lbl_inexistente.Visible = false;
+                }
+                else { lbl_inexistente.Visible = true; }
+
+            }
+            else { lbl_inexistente.Visible = true; }
+
             
-            int dato= Int32.Parse(txtSucursal.Text);
-            String consulta2 = "SELECT Id_Sucursal as 'ID Sucursal', NombreSucursal as 'Nombre sucursal', " +
-            "DescripcionSucursal as 'Descripcion', Provincia.DescripcionProvincia as 'Provincia' , DireccionSucursal as 'Direccion' " +
-            "FROM Sucursal " +
-            "INNER JOIN Provincia ON Provincia.Id_Provincia = Sucursal.Id_ProvinciaSucursal WHERE Id_sucursal="+ dato;
-
-            _sucursal.CargarEnTabla(grdDatos, consulta2);
-
+            txtSucursal.Text = "";
         }
 	}
 }

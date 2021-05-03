@@ -25,16 +25,19 @@
             <span class="auto-style1"><strong>Listado de Sucursales</strong><br />
             </span>&nbsp;<br />
             Busqueda ingrese ID sucursal:&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtSucursal" runat="server" TextMode="Number"></asp:TextBox>
+            <asp:TextBox ID="txtSucursal" runat="server" TextMode="Number" ValidationGroup="busqueda1"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" OnClick="btnFiltrar_Click" />
+            <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" OnClick="btnFiltrar_Click" ValidationGroup="busqueda1" />
 &nbsp;&nbsp;&nbsp;
             <asp:Button ID="btnMostrar" runat="server" Text="Mostrar todos" OnClick="btnMostrar_Click" />
+            <asp:Label ID="lbl_inexistente" runat="server" Text="La sucursal no existe" Visible="False"></asp:Label>
             <br />
             <br />
             <asp:GridView ID="grdDatos" runat="server">
             </asp:GridView>
         </div>
+        <p>
+            &nbsp;</p>
     </form>
 </body>
 </html>

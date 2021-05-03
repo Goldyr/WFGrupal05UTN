@@ -56,5 +56,21 @@ namespace PR3TP05
             cn.Close();
         }
 
+        public bool verificarID (string consulta)
+        {
+            bool existe = false;
+            SqlConnection Cn_V = new SqlConnection(s_ruta);
+            Cn_V.Open();
+            SqlCommand cmd = new SqlCommand(consulta, Cn_V);
+            SqlDataAdapter adapter_V_local = new SqlDataAdapter(cmd);
+            DataSet ds_V = new DataSet();
+            if (adapter_V_local.Fill(ds_V)!=0)
+            {
+                existe = true;
+            }
+            Cn_V.Close();
+            return existe;
+        }
+
     }
 }

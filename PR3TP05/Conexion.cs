@@ -14,7 +14,7 @@ namespace PR3TP05
 
         public Conexion()
         {
-            s_ruta = "Data Source=localhost\\MSSQLSERVER2;Initial Catalog = BDSucursales; Integrated Security = True";
+            s_ruta = "Data Source=localhost\\SQLEXPRESS;Initial Catalog = BDSucursales; Integrated Security = True";
         }
 
         protected DataSet ConsultaDataSet(string consulta)    // Metodo para hacer consultas
@@ -29,20 +29,6 @@ namespace PR3TP05
             return ds_V;
         }
 
-        protected SqlDataReader Traer_datos(string consulta)
-        {
-            SqlConnection conexion = new SqlConnection(s_ruta);
-            conexion.Open();
-
-            SqlCommand cmd = new SqlCommand(consulta, conexion);
-
-            cmd.CommandType = CommandType.Text;
-
-            SqlDataReader dr = cmd.ExecuteReader();
-
-            //conexion.Close();
-            return dr;
-        }
 
         virtual protected void CargarDdl(DropDownList ddl, string consulta)
         {

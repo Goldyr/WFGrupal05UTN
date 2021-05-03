@@ -28,13 +28,15 @@
             <span class="auto-style1"><strong>Eliminar Sucursales<br />
             <br />
             </strong></span><span class="auto-style2">Ingrese ID sucursal: </span>
-            <asp:TextBox ID="txtSucursal_eli" runat="server" TextMode="Number"></asp:TextBox>
+            <asp:TextBox ID="txtSucursal_eli" runat="server" TextMode="Number" ValidationGroup="eliminar"></asp:TextBox>
             <span class="auto-style1"><strong>&nbsp;
-            <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
+            <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" ValidationGroup="eliminar" />
             <br />
             <asp:Label ID="lbl_eliminar" runat="server"></asp:Label>
             </strong></span>
         </div>
+        <p>
+            &nbsp;</p>
     </form>
 </body>
 </html>
